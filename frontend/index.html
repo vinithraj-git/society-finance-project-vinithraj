@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Society Finance System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="logo-box">
+        <div class="logo-circle">SF</div>
+        <div>
+          <h2>Society Finance</h2>
+          <p>Management Panel</p>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#forms">Add Records</a>
+        <a href="#tables">Reports</a>
+      </nav>
+
+      <div class="side-note">
+        <h3>Project Info</h3>
+        <p>DBMS Mini Project</p>
+        <p>Frontend + Backend + MySQL</p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h1>Society Finance System</h1>
+          <p class="subtitle">Manage income, expenses and members easily</p>
+        </div>
+        <button class="refresh-btn" onclick="loadDashboard()">Refresh Data</button>
+      </header>
+
+      <section id="dashboard" class="stats-grid">
+        <div class="stat-card income-card">
+          <h3>Total Income</h3>
+          <p>₹ <span id="income">0</span></p>
+        </div>
+
+        <div class="stat-card expense-card">
+          <h3>Total Expense</h3>
+          <p>₹ <span id="expense">0</span></p>
+        </div>
+
+        <div class="stat-card balance-card">
+          <h3>Balance</h3>
+          <p>₹ <span id="balance">0</span></p>
+        </div>
+      </section>
+
+      <section id="forms" class="forms-grid">
+        <div class="form-card">
+          <h2>Add Member</h2>
+          <div class="input-group">
+            <label>Name</label>
+            <input id="name" type="text" placeholder="Enter member name" />
+          </div>
+          <div class="input-group">
+            <label>Flat No</label>
+            <input id="flat" type="text" placeholder="Enter flat number" />
+          </div>
+          <button onclick="addMember()">Add Member</button>
+        </div>
+
+        <div class="form-card">
+          <h2>Add Expense</h2>
+          <div class="input-group">
+            <label>Expense Title</label>
+            <input id="etitle" type="text" placeholder="Enter expense title" />
+          </div>
+          <div class="input-group">
+            <label>Amount</label>
+            <input id="eamount" type="number" placeholder="Enter amount" />
+          </div>
+          <button onclick="addExpense()">Add Expense</button>
+        </div>
+
+        <div class="form-card">
+          <h2>Add Income</h2>
+          <div class="input-group">
+            <label>Income Source</label>
+            <input id="isource" type="text" placeholder="Enter income source" />
+          </div>
+          <div class="input-group">
+            <label>Amount</label>
+            <input id="iamount" type="number" placeholder="Enter amount" />
+          </div>
+          <button onclick="addIncome()">Add Income</button>
+        </div>
+      </section>
+
+      <section id="tables" class="tables-grid">
+        <div class="table-card">
+          <div class="table-header">
+            <h2>Income Records</h2>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Source</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody id="incomeTable"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <div class="table-header">
+            <h2>Expense Records</h2>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody id="expenseTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
