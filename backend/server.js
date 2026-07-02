@@ -72,7 +72,7 @@ app.post("/expenses", (req, res) => {
   }
 
   const sql =
-    "INSERT INTO expenses (title, amount, expense_date, description) VALUES (?, ?, CURDATE(), '')";
+    "INSERT INTO expenses (title, amount, expense_date, description) VALUES (?, ?, CURRENT_DATE, '')";
 
   db.query(sql, [title, amount], (err, result) => {
     if (err) {
@@ -103,7 +103,7 @@ app.post("/income", (req, res) => {
   }
 
   const sql =
-    "INSERT INTO income (source, amount, income_date, description) VALUES (?, ?, CURDATE(), '')";
+    "INSERT INTO income (source, amount, income_date, description) VALUES (?, ?, CURRENT_DATE, '')";
 
   db.query(sql, [source, amount], (err, result) => {
     if (err) {
